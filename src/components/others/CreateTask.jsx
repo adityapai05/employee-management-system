@@ -69,13 +69,12 @@ function CreateTask() {
             </div>
             <div>
               <h3 className="text-lg text-gray-300 mb-0.5">Assign To</h3>
-              <input
-                value={assignTo}
-                onChange={(e) => setAssignTo(e.target.value)}
-                className="text-lg py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 "
-                type="text"
-                placeholder="Employee Name"
-              />
+              <select className="text-lg py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4" value={assignTo}
+                onChange={(e) => setAssignTo(e.target.value)}>
+                {userData.map((ele) => {
+                  return (<option className="bg-[#1c1c1c]">{ele.firstName +" " +ele.lastName}</option>)
+                })}
+              </select>
             </div>
             <div>
               <h3 className="text-lg text-gray-300 mb-0.5">Category</h3>
@@ -96,7 +95,8 @@ function CreateTask() {
               className="w-full h-44 text-lg py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400"
               cols="30"
               rows="10"
-              placeholder="Detailed description of task (Max. 500 words)"
+              maxLength="200"
+              placeholder="Detailed Description (Max. 200 characters)"
             ></textarea>
             <button className="bg-emerald-500 py-3 hover:bg-emerald-600 px-5 rounded-lg text-lg mt-4 w-full">
               Create Task
