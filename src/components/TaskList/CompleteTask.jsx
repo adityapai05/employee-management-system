@@ -15,7 +15,7 @@ const CompleteTask = ({ ele }) => {
       </div>
       <div className="mt-auto">
         <button className="w-full bg-green-500 cursor-default rounded-lg font-medium py-3 px-2 text-base">
-          Complete Task
+          Task Completed
         </button>
       </div>
     </div>

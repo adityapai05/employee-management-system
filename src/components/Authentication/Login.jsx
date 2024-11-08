@@ -1,36 +1,42 @@
 import React, { useState } from "react";
 
-function Login({handleLogin}) {
+const Login = ({ handleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const handleSubmit = (e) => {
-      e.preventDefault();
-      handleLogin(email, password);
-      setEmail("");
-      setPassword("");
+    e.preventDefault();
+    handleLogin(email, password);
+    setEmail("");
+    setPassword("");
   };
+
   return (
-    <div className="flex h-screen w-screen items-center justify-center font-bold">
-      <div className="border-2 border-emerald-600 p-20 rounded-xl">
-        <form className="flex flex-col items-center justify-center" onSubmit={e => handleSubmit(e)}>
+    <div className="flex items-center justify-center h-screen w-screen">
+      <div className="border-2 border-emerald-600 p-8 md:p-12 rounded-xl w-full max-w-md mx-4 sm:mx-8">
+        <h2 className="text-2xl font-bold mb-6 text-emerald-600">Login</h2>
+        <form
+          className="flex flex-col items-center justify-center space-y-6"
+          onSubmit={handleSubmit}
+        >
           <input
             type="email"
-            className=" border-2 border-emerald-600 py-3 px-5 text-xl outline-none  bg-transparent rounded-full"
+            className="border-2 border-emerald-600 py-3 px-5 text-xl outline-none bg-transparent rounded-full w-full"
             placeholder="Enter your email"
             required
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
           <input
             type="password"
-            className="border-2 border-emerald-600 py-3 px-5 text-xl outline-none  bg-transparent rounded-full mt-3"
+            className="border-2 border-emerald-600 py-3 px-5 text-xl outline-none bg-transparent rounded-full w-full"
             placeholder="Enter password"
             required
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
           <button
-            className=" bg-emerald-600  hover:bg-emerald-700 py-3 px-5 text-xl outline-none  rounded-full mt-7 w-full"
+            className="bg-emerald-600 hover:bg-emerald-700 py-3 px-5 text-xl outline-none rounded-full w-full"
             type="submit"
           >
             Log In
@@ -39,6 +45,6 @@ function Login({handleLogin}) {
       </div>
     </div>
   );
-}
+};
 
 export default Login;

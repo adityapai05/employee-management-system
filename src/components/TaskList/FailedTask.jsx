@@ -15,7 +15,7 @@ const FailedTask = ({ ele }) => {
       </div>
       <div className="mt-auto">
         <button  disabled className="w-full bg-red-500  cursor-default rounded-lg font-medium py-3 px-2 text-base">
-          Failed
+          Task Failed
         </button>
       </div>
     </div>

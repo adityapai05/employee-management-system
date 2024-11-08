@@ -3,7 +3,7 @@ import React from "react";
 const AcceptTask = ({ ele }) => {
   console.log("task title: ", ele.title);
   return (
-    <div className="h-full w-[20.5rem] bg-red-400 rounded-xl flex-shrink-0 p-5 flex flex-col justify-between">
+    <div className="h-full w-[20.5rem] bg-orange-400 rounded-xl flex-shrink-0 p-5 flex flex-col justify-between">
       <div>
         <div className="flex justify-between items-center text-sm">
           <h3 className="bg-red-600 py-1 px-4 rounded">{ele.category}</h3>
