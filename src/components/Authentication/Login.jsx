@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-function Login() {
+function Login({handleLogin}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = (e) => {
       e.preventDefault();
-      console.log("Email is: ", email);
-      console.log("Password is: ", password);
+      handleLogin(email, password);
       setEmail("");
       setPassword("");
   };
@@ -31,7 +30,7 @@ function Login() {
             value={password}
           />
           <button
-            className=" bg-emerald-600  hover:bg-emerald-900 py-3 px-5 text-xl outline-none  bg-transparent rounded-full mt-7 w-full"
+            className=" bg-emerald-600  hover:bg-emerald-700 py-3 px-5 text-xl outline-none  rounded-full mt-7 w-full"
             type="submit"
           >
             Log In

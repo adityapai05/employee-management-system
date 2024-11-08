@@ -1,14 +1,15 @@
 import React from 'react'
-import Header from '../layout/Header'
-import TaskCounter from '../layout/TaskCounter'
+import Header from '../others/Header'
+import TaskCounter from '../others/TaskCounter'
 import TaskList from '../TaskList/TaskList'
 
-function EmployeeDashboard() {
+function EmployeeDashboard({data}) {
+  console.log("Dashbboard : ",{data})
   return (
     <div className='p-16 bg-[#1C1C1C] h-screen'>
-      <Header />
-      <TaskCounter />
-      <TaskList />
+      <Header data={data}/>
+      <TaskCounter data={data}/>
+      <TaskList data={data} />
     </div>
   )
 }

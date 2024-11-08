@@ -1,51 +1,22 @@
 import React from "react";
+import NewTask from "./NewTask";
+import AcceptTask from "./AcceptTask";
+import CompleteTask from "./CompleteTask";
+import FailedTask from "./FailedTask";
 
-function TaskList() {
+function TaskList({ data }) {
+  console.log("task list: ", { data });
   return (
     <div
       id="task-list"
-      className="flex items-center justify-start gap-5 h-[60%] w-full mt-10 rounded-xl py-5 flex-nowrap overflow-x-auto"
+      className="flex items-center justify-start gap-5 h-[60%] w-full mt-10 rounded-xl py-5 flex-nowrap overflow-x-auto scrollbar-hide"
     >
-      <div className="h-full w-[20.5rem] bg-red-400 rounded-xl flex-shrink-0 p-5">
-        <div className="flex justify-between  items-center text-sm">
-          <h3 className="bg-red-600 py-1 px-4 rounded">High</h3>
-          <h4>20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-3xl font-semibold">Go to the Gym</h2>
-        <p className="text-sm mt-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fuga qui voluptates architecto dignissimos ad at adipisci esse repellat, aspernatur distinctio totam repudiandae alias eligendi minima similique quibusdam ipsum iste?</p>
-      </div>
-      <div className="h-full w-[20.5rem] bg-green-400 rounded-xl flex-shrink-0 p-5">
-        <div className="flex justify-between  items-center text-sm">
-          <h3 className="bg-red-600 py-1 px-4 rounded">High</h3>
-          <h4>20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-3xl font-semibold">Go to the Gym</h2>
-        <p className="text-sm mt-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fuga qui voluptates architecto dignissimos ad at adipisci esse repellat, aspernatur distinctio totam repudiandae alias eligendi minima similique quibusdam ipsum iste?</p>
-      </div>
-      <div className="h-full w-[20.5rem] bg-blue-400 rounded-xl flex-shrink-0 p-5">
-        <div className="flex justify-between  items-center text-sm">
-          <h3 className="bg-red-600 py-1 px-4 rounded">High</h3>
-          <h4>20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-3xl font-semibold">Go to the Gym</h2>
-        <p className="text-sm mt-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fuga qui voluptates architecto dignissimos ad at adipisci esse repellat, aspernatur distinctio totam repudiandae alias eligendi minima similique quibusdam ipsum iste?</p>
-      </div>
-      <div className="h-full w-[20.5rem] bg-yellow-400 rounded-xl flex-shrink-0 p-5">
-        <div className="flex justify-between  items-center text-sm">
-          <h3 className="bg-red-600 py-1 px-4 rounded">High</h3>
-          <h4>20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-3xl font-semibold">Go to the Gym</h2>
-        <p className="text-sm mt-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fuga qui voluptates architecto dignissimos ad at adipisci esse repellat, aspernatur distinctio totam repudiandae alias eligendi minima similique quibusdam ipsum iste?</p>
-      </div>
-      <div className="h-full w-[20.5rem] bg-red-400 rounded-xl flex-shrink-0 p-5">
-        <div className="flex justify-between  items-center text-sm">
-          <h3 className="bg-red-600 py-1 px-4 rounded">High</h3>
-          <h4>20 Feb 2024</h4>
-        </div>
-        <h2 className="mt-5 text-3xl font-semibold">Go to the Gym</h2>
-        <p className="text-sm mt-5 font-medium">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit fuga qui voluptates architecto dignissimos ad at adipisci esse repellat, aspernatur distinctio totam repudiandae alias eligendi minima similique quibusdam ipsum iste?</p>
-      </div>
+      {data.tasks.map((ele, idx) => {
+        if (ele.isActive) return <AcceptTask key={idx} ele={ele}/>;
+        else if (ele.isNew) return <NewTask key={idx} ele={ele} />;
+        else if (ele.isCompleted) return <CompleteTask key={idx} ele={ele}/>;
+        else if (ele.isFailed) return <FailedTask key={idx} ele={ele}/>;
+      })}
     </div>
   );
 }
