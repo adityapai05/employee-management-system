@@ -1,14 +1,58 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 function CreateTask() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [assignTo, setAssignTo] = useState("");
+  const [category, setCategory] = useState("");
+
+  const [userData, setUserData] = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Task Created");
+    const newTask = {
+      title,
+      description,
+      date,
+      assignTo,
+      category,
+      isActive: false,
+      isNew: true,
+      isFailed: false,
+      isCompleted: false,
+    }
+    const data = userData ;
+
+   data.forEach((ele) => {
+      if (assignTo === ele.firstName + " " + ele.lastName) {
+        ele.tasks.push(newTask);
+        ele.taskCount.new = ele.taskCount.new + 1;
+      }
+    });
+    setUserData(data);
+    console.log("Data: ",data);
+    setTitle('');
+    setAssignTo('');
+    setCategory('');
+    setDate('');
+    setDescription('');
+  };
   return (
     <div>
       <div className="p-5 bg-[#1c1c1c] mt-7 rounded">
-        <form className="flex w-full items-start justify-between flex-wrap">
+        <form
+          className="flex w-full items-start justify-between flex-wrap"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <div className="w-1/2">
             <div>
               <h3 className="text-lg text-gray-300 mb-0.5">Task Title</h3>
               <input
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
                 className="text-lg py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 "
                 type="text"
                 placeholder="Make a UI Design"
@@ -17,6 +61,8 @@ function CreateTask() {
             <div>
               <h3 className="text-lg text-gray-300 mb-0.5">Date</h3>
               <input
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
                 className="text-lg py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] text-gray-300 border-gray-400 mb-4 "
                 type="date"
               />
@@ -24,6 +70,8 @@ function CreateTask() {
             <div>
               <h3 className="text-lg text-gray-300 mb-0.5">Assign To</h3>
               <input
+                value={assignTo}
+                onChange={(e) => setAssignTo(e.target.value)}
                 className="text-lg py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 "
                 type="text"
                 placeholder="Employee Name"
@@ -32,6 +80,8 @@ function CreateTask() {
             <div>
               <h3 className="text-lg text-gray-300 mb-0.5">Category</h3>
               <input
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
                 className="text-lg py-1 px-2 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4 "
                 type="text"
                 placeholder="Design, Development, etc..."
@@ -41,6 +91,8 @@ function CreateTask() {
           <div className="w-2/5 flex flex-col items-start">
             <h3 className="text-lg text-gray-300 mb-0.5">Description</h3>
             <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               className="w-full h-44 text-lg py-2 px-4 rounded outline-none bg-transparent border-[1px] border-gray-400"
               cols="30"
               rows="10"
