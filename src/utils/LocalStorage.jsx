@@ -20,7 +20,8 @@ const employees = [
         title: "Complete Project Report",
         description: "Finish and submit the final project report.",
         date: "2024-11-10",
-        category: "Documentation"
+        category: "Documentation",
+        priority: "High"
       },
       {
         isActive: false,
@@ -30,7 +31,8 @@ const employees = [
         title: "Team Meeting",
         description: "Discuss the project milestones with the team.",
         date: "2024-11-05",
-        category: "Meetings"
+        category: "Meetings",
+        priority: "Medium"
       },
       {
         isActive: true,
@@ -40,7 +42,8 @@ const employees = [
         title: "Update Documentation",
         description: "Revise and update project documentation.",
         date: "2024-11-12",
-        category: "Documentation"
+        category: "Documentation",
+        priority: "Low"
       }
     ]
   },
@@ -65,7 +68,8 @@ const employees = [
         title: "Design New Layout",
         description: "Create a new layout for the dashboard.",
         date: "2024-11-14",
-        category: "Design"
+        category: "Design",
+        priority: "High"
       },
       {
         isActive: true,
@@ -75,7 +79,8 @@ const employees = [
         title: "Client Feedback",
         description: "Review feedback from the client on recent designs.",
         date: "2024-11-08",
-        category: "Review"
+        category: "Review",
+        priority: "Medium"
       }
     ]
   },
@@ -100,7 +105,8 @@ const employees = [
         title: "Backend API Optimization",
         description: "Optimize API endpoints for faster response.",
         date: "2024-11-06",
-        category: "Development"
+        category: "Development",
+        priority: "Low"
       },
       {
         isActive: true,
@@ -110,7 +116,8 @@ const employees = [
         title: "Database Schema Update",
         description: "Implement changes in the database schema.",
         date: "2024-11-13",
-        category: "Database"
+        category: "Database",
+        priority: "Medium"
       }
     ]
   },
@@ -135,7 +142,8 @@ const employees = [
         title: "Bug Fixing",
         description: "Resolve critical bugs in production.",
         date: "2024-11-05",
-        category: "Development"
+        category: "Development",
+        priority: "High"
       },
       {
         isActive: true,
@@ -145,7 +153,8 @@ const employees = [
         title: "System Testing",
         description: "Conduct system tests for recent updates.",
         date: "2024-11-09",
-        category: "Testing"
+        category: "Testing",
+        priority: "Medium"
       }
     ]
   },
@@ -170,7 +179,8 @@ const employees = [
         title: "Create Presentation",
         description: "Prepare slides for the quarterly review.",
         date: "2024-11-11",
-        category: "Presentation"
+        category: "Presentation",
+        priority: "Medium"
       },
       {
         isActive: false,
@@ -180,7 +190,8 @@ const employees = [
         title: "Team Feedback",
         description: "Gather feedback from team members.",
         date: "2024-11-04",
-        category: "Feedback"
+        category: "Feedback",
+        priority: "Low"
       }
     ]
   }

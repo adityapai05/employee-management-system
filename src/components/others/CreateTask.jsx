@@ -7,6 +7,7 @@ function CreateTask() {
   const [date, setDate] = useState("");
   const [assignTo, setAssignTo] = useState("");
   const [category, setCategory] = useState("");
+  const [priority, setPriority] = useState("🟠 Medium");
 
   const [userData, setUserData] = useContext(AuthContext);
 
@@ -19,6 +20,7 @@ function CreateTask() {
       date,
       assignTo,
       category,
+      priority, 
       isActive: false,
       isNew: true,
       isFailed: false,
@@ -39,6 +41,7 @@ function CreateTask() {
     setCategory("");
     setDate("");
     setDescription("");
+    setPriority("🟠 Medium"); // Reset priority
   };
 
   return (
@@ -83,7 +86,7 @@ function CreateTask() {
               >
                 {userData.map((ele) => {
                   return (
-                    <option className="bg-[#1c1c1c]">
+                    <option key={ele.firstName + ele.lastName} className="bg-[#1c1c1c]">
                       {ele.firstName + " " + ele.lastName}
                     </option>
                   );
@@ -101,6 +104,27 @@ function CreateTask() {
                 type="text"
                 placeholder="Design, Development, etc..."
               />
+            </div>
+            {/* Priority Field */}
+            <div>
+              <h3 className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg text-gray-300 mb-0.5">
+                Priority
+              </h3>
+              <select
+                value={priority}
+                onChange={(e) => setPriority(e.target.value)}
+                className="text-lg sm:text-lg md:text-lg lg:text-lg xl:text-lg py-1 px-2 w-full sm:w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 mb-4"
+              >
+                <option value="High" className="bg-[#1c1c1c]">
+                  🔴 High
+                </option>
+                <option value="Medium" className="bg-[#1c1c1c]">
+                  🟠 Medium
+                </option>
+                <option value="Low" className="bg-[#1c1c1c]">
+                  🟢 Low
+                </option>
+              </select>
             </div>
           </div>
           <div className="w-full sm:w-2/5 flex flex-col items-start">
