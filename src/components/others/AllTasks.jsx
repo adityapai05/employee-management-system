@@ -10,11 +10,12 @@ function AllTasks() {
         id="assigned-tasks"
         className="bg-neutral-900 mb-2 py-2 px-4 flex justify-between items-center rounded font-bold text-base sm:text-lg"
       >
-        <h2 className="w-1/5 text-center">Employee Name</h2>
-        <h3 className="w-1/5 text-center">New Task</h3>
-        <h5 className="w-1/5 text-center">Active Task</h5>
-        <h5 className="w-1/5 sm:w-1/5 text-center">Completed</h5>
-        <h5 className="w-1/5 sm:w-1/5 text-center">Failed</h5>
+        <h2 className="w-1/6 text-center">Employee Name</h2>
+        <h2 className="w-1/6 text-center">Role</h2>
+        <h3 className="w-1/6 text-center">New Task</h3>
+        <h5 className="w-1/6 text-center">Active Task</h5>
+        <h5 className="w-1/6 sm:w-1/5 text-center">Completed</h5>
+        <h5 className="w-1/6 sm:w-1/5 text-center">Failed</h5>
       </div>
 
       <div className="h-[80%] sm:h-[80%] md:h-[80%] lg:h-[80%] xl:h-[80%] overflow-auto scrollbar-hide font-medium">
@@ -25,13 +26,14 @@ function AllTasks() {
               id="assigned-tasks"
               className="bg-neutral-800 mb-2 py-2 px-4 flex justify-between items-center rounded font-medium text-sm sm:text-base"
             >
-              <h2 className="w-1/5 text-center">
+              <h2 className="w-1/6 text-center">
                 {ele.firstName} {ele.lastName}
               </h2>
-              <h3 className="w-1/5 text-blue-400 text-center">{ele.taskCount.new}</h3>
-              <h5 className="w-1/5 text-yellow-400 text-center">{ele.taskCount.active}</h5>
-              <h5 className="w-1/5 sm:w-1/5 text-green-600 text-center">{ele.taskCount.completed}</h5>
-              <h5 className="w-1/5 sm:w-1/5 text-red-500 text-center">{ele.taskCount.failed}</h5>
+              <h3 className="w-1/6 text-teal-400 text-center">{ele.role}</h3>
+              <h3 className="w-1/6 text-blue-400 text-center">{ele.taskCount.new}</h3>
+              <h5 className="w-1/6 text-yellow-400 text-center">{ele.taskCount.active}</h5>
+              <h5 className="w-1/6 sm:w-1/5 text-green-600 text-center">{ele.taskCount.completed}</h5>
+              <h5 className="w-1/6 sm:w-1/5 text-red-500 text-center">{ele.taskCount.failed}</h5>
             </div>
           );
         })}

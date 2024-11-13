@@ -16,7 +16,7 @@ function EmployeeDashboard({ data, changeUser }) {
   });
 
   return (
-    <div className='p-3 sm:p-6 md:p-8 lg:p-12 xl:p-16 bg-[#1C1C1C] h-screen'>
+    <div className='p-3 sm:p-6 md:p-8 lg:p-12 xl:p-10 bg-[#1C1C1C] sm:h-screen'>
       <Header changeUser={changeUser} data={data} />
 
       {/* Search and Filter Section */}
