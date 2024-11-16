@@ -2,20 +2,6 @@
 
 An **Employee Management System** built with **React**, **TailwindCSS**, and **LocalStorage** to streamline task management and improve employee productivity. This system allows both admin and employee users to manage tasks, track progress, and maintain an efficient workflow.
 
-
-### Login Page
-
-### Employee Dashboard
-
-### Admin Dashboard
-#### Task Creation
-![Create Task](assets/create_task.png)
-#### User Creation
-![Add User](assets/add_user.png)
-#### Employee Statistics
-![Employee Stats](assets/emp_stats.png)
-
-
 ---
 
 ## 🌟 **Key Features**:
